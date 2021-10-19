@@ -1,3 +1,10 @@
+#folder
+.metadata
+code/.settings
+code/.classpath
+code/.project
+code/bin/
+
 # Compiled class file
 *.class
 
