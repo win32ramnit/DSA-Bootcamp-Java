@@ -1,35 +1,40 @@
 package com.manish.array;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
 import java.util.List;
 
-public class PascalTriangle {
+public class PascalTriangleII {
 
 	public static void main(String[] args) {
 
 		// test case 1
-		int numRows = 5;
-		System.out.println((generate(numRows)));
+		int rowIndex  = 3;
+		System.out.println((getRow(rowIndex)));
 
 		// test case 2
-		numRows = 1;
+		rowIndex  = 0;
+		System.out.println((getRow(rowIndex)));
+		
+		// test case 3
+		rowIndex = 1;
+		System.out.println((getRow(rowIndex)));
 
 	}
 
-	public static List<List<Integer>> generate(int numRows) {
+	public static List<Integer> getRow(int rowIndex) {
 		List<List<Integer>> pascalTriangle = new ArrayList<List<Integer>>();
 		List<Integer> row = new ArrayList<Integer>();
-		List<Integer> prevRow, currRow;
+		List<Integer> prevRow, currRow = null;
 
-		if (numRows == 0) {
-			return pascalTriangle;
+		if (rowIndex == 0) {
+			row.add(1);
+			pascalTriangle.add(row);
+			return pascalTriangle.get(0);
 		}
 		row.add(1);
 		pascalTriangle.add(row);
 		
-		for (int i = 1; i < numRows; i++) {
+		for (int i = 1; i <= rowIndex; i++) {
 			prevRow = pascalTriangle.get(i-1);
 			currRow = new ArrayList<Integer>();
 			currRow.add(1);
@@ -40,7 +45,7 @@ public class PascalTriangle {
 			pascalTriangle.add(currRow);
 		}
 
-		return pascalTriangle;
+		return pascalTriangle.get(rowIndex);
 	}
 
 }
